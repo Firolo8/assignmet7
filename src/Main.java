@@ -20,16 +20,29 @@ public class Main {
 
 
         int random = (int)(Math.random() * friendsList.size());
-        String randomFriend1 = friendsList.get(random);
-
         int random2 = (int)(Math.random() * friendsList.size());
-        String randomFriend2 = friendsList.get(random);
-        while(random == random2) {
-            if (random == random2) {
 
+        if (random == random2) {
+            while (random == random2) {
+                random = (int) (Math.random() * friendsList.size());
+                random2 = (int) (Math.random() * friendsList.size());
             }
         }
+        String randomFriend1 = friendsList.get(random);
+        String randomFriend2 = friendsList.get(random2);
 
         System.out.println("The two friends that have been randomly chosen to go to the movies with you are: \n" + randomFriend1 + " and " + randomFriend2);
+
+        System.out.println("Which fiends would you like to take off your friend list and add to your best\n" +
+                "friend list? " + "(Indicate with the number next to each name. Press \"0\" to end)");
+
+        ArrayList<String> bffsList = new ArrayList<String>();
+
+        int bffs = scan.nextInt();
+        while (bffs != 0){
+            bffsList.add(bffsList.get(bffs);
+            bffsList.remove
+            bffs = scan.nextInt();
+        }
     }
 }
