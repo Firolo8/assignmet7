@@ -8,15 +8,18 @@ public class Main {
         String input = scan.nextLine();
 
         ArrayList<String> friendsList = new ArrayList<String>();
-        int friendsNumber = 0;
+
 
         while (!(input.equals("d"))){
             friendsList.add(input);
             input = scan.nextLine();
-            friendsNumber++;
+
         }
-        System.out.println("You have entered " + friendsNumber + " friends.");
-        System.out.println("Here is your list of friends: " +friendsList);
+        System.out.println("You have entered " + friendsList.size() + " friends.");
+        System.out.println("Here is your list of friends: ");
+        for (int i = 0; i < friendsList.size(); i++) {
+            System.out.println((i + 1) + ". " + friendsList.get(i));
+        }
 
 
         int random = (int)(Math.random() * friendsList.size());
@@ -34,15 +37,32 @@ public class Main {
         System.out.println("The two friends that have been randomly chosen to go to the movies with you are: \n" + randomFriend1 + " and " + randomFriend2);
 
         System.out.println("Which fiends would you like to take off your friend list and add to your best\n" +
-                "friend list? " + "(Indicate with the number next to each name. Press \"0\" to end)");
+                "friend list? " + "(Indicate with the index number of each name. Press \"0\" to end)");
 
         ArrayList<String> bffsList = new ArrayList<String>();
 
         int bffs = scan.nextInt();
-        while (bffs != 0){
-            bffsList.add(bffsList.get(bffs);
-            bffsList.remove
+        while (bffs != 0) {
+            if (bffs <= friendsList.size() && bffs > 0)
+            {
+                bffsList.add(friendsList.remove(bffs - 1));
+                bffs--;
+            }
+            else
+            {
+                System.out.println("Please enter a valid friend number or 0 to end.");
+            }
             bffs = scan.nextInt();
+        }
+
+        System.out.println("\nHere is your list of friends:");
+        for (int i = 0; i < friendsList.size(); i++) {
+            System.out.println((i + 1) + ". " + friendsList.get(i));
+        }
+
+        System.out.println("\nHere is your list of best friends:");
+        for (int i = 0; i < bffsList.size(); i++) {
+            System.out.println((i + 1) + ". " + bffsList.get(i));
         }
     }
 }
